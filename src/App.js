@@ -2,30 +2,35 @@ import React, { Component } from 'react';
 import './App.css';
 import News from './News/News';
 
-const user = {
-  firstName: 'Manny',
-  lastName: 'Henri',
-  data: 'This is some data',
-};
-
 const UserData = React.createContext();
 export const UserConsumer = UserData.Consumer;
 
 class App extends Component {
   constructor(props) {
     super(props);
-    
+
+    this.toggleName = () => {
+      this.setState(state => ({
+        name:
+          state.name === 'Manny Henri'
+          ? 'Somebody else'
+          : 'Manny Henri'
+      }))
+    }
+
     this.state = {
       news: {
         type: 'everything',
         query: 'domains=techcrunch.com&language=en'
       },
+      name: 'Manny Henri',
+      toggleName: this.toggleName,
     };
   }
 
   render() {
     return (
-      <UserData.Provider value={user}>
+      <UserData.Provider value={this.state}>
         <div className="containwer-fluid">
           <div className="navbar-fixed">
             <nav>
