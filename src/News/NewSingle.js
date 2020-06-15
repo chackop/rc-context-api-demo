@@ -4,7 +4,7 @@ import { UserConsumer } from '../App';
 const NewSingle = ({item}) => (
   <UserConsumer>
     {({ name, toggleName }) => (
-    <div className="col s4" onClick={toggleName}>
+    <div style={{flex: 1}} onClick={toggleName}>
       <div className="card">
         <div className="card-image">
           <img src={item.urlToImage} alt={item.title}/>

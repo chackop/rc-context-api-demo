@@ -3,7 +3,9 @@ import './App.css';
 import News from './News/News';
 
 const UserData = React.createContext();
+const Theme = React.createContext();
 export const UserConsumer = UserData.Consumer;
+export const ThemeConsumer = Theme.Consumer;
 
 class App extends Component {
   constructor(props) {
@@ -25,6 +27,9 @@ class App extends Component {
       },
       name: 'Manny Henri',
       toggleName: this.toggleName,
+      styles: {
+        display: 'flex',
+      }
     };
   }
 
@@ -41,7 +46,9 @@ class App extends Component {
           </div>
           <div className="row">
             <div className="col s12">
-              <News news={this.state.news} />
+              <Theme.Provider value={this.state}>
+                <News news={this.state.news} />
+              </Theme.Provider>
             </div>
           </div>
         </div>
