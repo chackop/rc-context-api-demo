@@ -3,12 +3,12 @@ import { UserConsumer } from '../App';
 
 const NewSingle = ({item}) => (
   <UserConsumer>
-    {({ firstName, lastName }) => (
-    <div className="col s4">
+    {({ name, toggleName }) => (
+    <div className="col s4" onClick={toggleName}>
       <div className="card">
         <div className="card-image">
           <img src={item.urlToImage} alt={item.title}/>
-          <span className="card-title">{firstName} {lastName}</span>
+          <span className="card-title">{name}</span>
         </div>
         <div className="card-content">
           <p>{item.title}</p>
